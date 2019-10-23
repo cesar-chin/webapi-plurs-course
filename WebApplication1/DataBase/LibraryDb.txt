@@ -1,0 +1,16 @@
+﻿
+--Crea tabla de autores
+CREATE TABLE dbo.Author  
+   (Guid UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,  
+    FirstName varchar(25) NOT NULL,  
+	LastName varchar(25) NOT NULL,  
+    DateOfBirth datetime NULL, 
+	Genre varchar(15) NOT NULL)  
+
+--Crea la tabla de libros
+CREATE TABLE dbo.Books
+   (Guid UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,  
+    Title varchar(25) NOT NULL,  
+	Description varchar(50) NOT NULL,  
+	Author varchar(50) NOT NULL,  
+    AuthorId UNIQUEIDENTIFIER not NULL)

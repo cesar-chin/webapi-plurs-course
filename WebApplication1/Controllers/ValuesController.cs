@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApiApp.Services;
 
-namespace WebApplication1.Controllers
+namespace WebApiApp.Controllers
 {
+
     //[Route("api/[controller]")]
     //[ApiController]
+    [Route("api/values")]
     public class ValuesController : ControllerBase
     {
+       /* private ILibraryRepository _libraryRepository;
+
+        public ValuesController(ILibraryRepository libraryRepository)
+        {
+            _libraryRepository = libraryRepository;
+        }
+        */
+
         //// GET api/values
-        //[HttpGet]
-        //public ActionResult<IEnumerable<string>> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
 
         //// GET api/values/5
         //[HttpGet("{id}")]
