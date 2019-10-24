@@ -1,4 +1,5 @@
 ﻿
+--Crea tabla authors
 CREATE TABLE dbo.Authors  
    (Id UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,  
     FirstName varchar(25) NOT NULL,  
@@ -6,9 +7,32 @@ CREATE TABLE dbo.Authors
     DateOfBirth datetime NULL, 
 	Genre varchar(15) NOT NULL)  
 
+--Crea tabla Books
 CREATE TABLE dbo.Books
    (Id UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,  
     Title varchar(25) NOT NULL,  
 	Description varchar(50) NOT NULL,  
 	Author varchar(50) NOT NULL,  
     AuthorId UNIQUEIDENTIFIER not NULL)
+
+--Agrega un author
+declare @auid as UNIQUEIDENTIFIER  
+SELECT @auid = NEWID()
+insert into dbo.Authors values(@auid, 'Agatha', 'Christie', '1900-02-01', 'F')
+
+--Agrega un libros para el autor
+declare @auidB as UNIQUEIDENTIFIER
+SELECT @auidB = NEWID()
+insert into dbo.Books values(@auidB, 
+							'Tragedia en tres actos',
+							'Novelas policiacas, de misterio, de intriga.',
+							'Agatha Christie',
+							'3CEA34DD-FC84-4B86-BD8D-16FFAA31C512')
+
+declare @auidB as UNIQUEIDENTIFIER
+SELECT @auidB = NEWID()
+insert into dbo.Books values(@auidB, 
+							'Le vallon',
+							'Librairie des Champs-Élysées., 1973.',
+							'Agatha Christie',
+							'3CEA34DD-FC84-4B86-BD8D-16FFAA31C512')

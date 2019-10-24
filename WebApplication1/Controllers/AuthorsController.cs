@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebApiApp.Helpers;
 using WebApiApp.Models;
 using WebApiApp.Services;
-
 
 namespace WebApiApp.Controllers
 {
