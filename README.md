@@ -1,15 +1,15 @@
 # webapi-plurs-course
 Compilación net core 3 de curso web api plural.
 
-##COURSE OVERVIEW
+## COURSE OVERVIEW
 
-###ConfigureServices
+### ConfigureServices
 Agrega servicios al contenedor de dependencias, cada uno que se\
 agregue va ser accesado de forma comun
 
 .AddMvc se puede usar pero es mejor utilizar solamente lo que se necesita
 
-###Configure
+### Configure
 Usa los servicios que estan registrados y configurados en 
 previamente
 
@@ -17,9 +17,9 @@ Cada uno de los "Use" en la configuración se ejecutan en orden, por ejemplo que
 ejecute antes de autorizar, en cualquier caso cada uno podría hacer que se
 termine la ejecución del siguiente
 
-##GETTING STARTED WITH REST
+## GETTING STARTED WITH REST
 
-###Que es Rest
+### Que es Rest
 Representational State Transfer, como una aplicacion se comporta, pagibas a travez de una red,
 donde un usuario avanza con links que resultan en una página siguiente, que representa
 el siguiente estado, que se muestra al usaurio.
@@ -28,10 +28,10 @@ Es un estilo de arquitectura que implementa muchos estádares, teoricamente es a
 protocolos, tal es el caso de json y http aunque en la practica no es despreciable el protocolo
 ya que es http
 
-###Otra definición
+### Otra definición
 El cliente cambia de estado dependiendo de la representacion del recurso que esta accesando
 
-###Constraints (desing desitions)
+### Constraints (desing desitions)
 1. Uniform Interface
 
 Compartir unica interfaz técnica (get, post, media type, etc)
@@ -82,7 +82,7 @@ UN SERVICIO SE CONSIDERA REST CUANDO SE ADHIERE A TODOS LOS CONSTRAINTS, lo que 
 de servicios restfull no lo son del todo, pero eso no quiere decir que sean malos APIs, tipicamente se
 puede ignorar HATEOAS
 
-###Richardson Maturity Model
+### Richardson Maturity Model
 Nivel 0
 Se utiliza http para interacción remota,   host/api  es un post que hace todo, http se usa como un protocolo
 de transporte
@@ -103,19 +103,19 @@ links que indican como interactuar con el API (permite descubrimiento de servici
 UN API PUEDE ESTAR EN CUALQUIER NIVEL, SIN EMBARGO SOLAMENTE CUANDO SE ESTA EN NIVEL 3 SE DICE QUE ES UN 
 RESTFULL API
 
-##STRUCTURING AND IMPLEMENTING THE OUTER FACING CONTRACT
+## STRUCTURING AND IMPLEMENTING THE OUTER FACING CONTRACT
 Resource Identifier, la dirección donde esta el recurso
 Metodo http, parte del estadar http 
 Payload opcional, el contenido esta en el body pero el formato esta en los mediatypes, content negotiation
 
-###Naming resources
+### Naming resources
 No existe un estándar pero si mejores prácticas 
 	Siempre debe ser  un pronombre, nunca una acción porque para eso está el método http
 	Ayuda el cliente a interpretar como funciona el API
 	Se retorna IActionResult  contrato que representa el resultado
 	Siempre se debe utilizar atribute routing en cada acción
 
-###Rountig
+### Rountig
 Liga un request URI a una acción en el controller 
 Agregar UseRouting, UseEndPoints, en net core 3 se puede injectar endpoints en middleware 
 de forma que se puede ejecutar uno especifico, potencialmente seleccionar otro.
@@ -125,7 +125,7 @@ de forma que se puede ejecutar uno especifico, potencialmente seleccionar otro.
 -Siempre utilizar el tipo Guid para Ids
 -Siempre utilizar status codes
 
-###Status Codes
+### Status Codes
 Son parte del estandar HTTP, si no se utilizan siempres retorna un codigo por defecto, los 
 códigos se utilizan para que tanto cliente como servidor sepan actuar de la mejor forma 
 ante cualquier eventualidad 
@@ -144,15 +144,15 @@ Client mistakes
 Server mistakes
 	500 Internal Server Error 
 
-###Error 
+### Error 
 Cuando un cliente pasa datos invalidos y el API lo rechaza, puede ser parametros, credenciales, etc
 Corresponde con errores 400 
 
-###Faults
+### Faults
 Cuando el API no puede responder correctamente a un request valido del cliente, corresponde con códigos 500
 que indican la disponibilidad del API
 
-###Formaters and Content Negotiation
+### Formaters and Content Negotiation
 Busca la mejor representación para una respuesta, cuando pueden haber varias
 Para esto se usan los output formaters, net core soporta input y output formaters
 Accept header le dice al API que retornar
@@ -160,8 +160,8 @@ Accept header le dice al API que retornar
 	se recomienda retornar 406 Not acceptable (modificar el Service.AddControllers(settup action ) en ConfigureServices)
 	La otra forma es aceptar el formater(settup action addInputFormater)
 
-##GETTING RESOURSES
-###Outer Facing vs Entity Model 
+## GETTING RESOURSES
+### Outer Facing vs Entity Model 
 No es lo mismo que esta en la base de datos a lo que se retorna.
 
 Se deben mantener separados para tener un codigo mas flexible y robusto, la base de datos
@@ -171,19 +171,19 @@ Utilizar automapper y automapper extensions for dependency injection
 
 En relaciones padre/hijo no se debe exponer la dependencia directamente
 
-##FILTERING AND SEARCHING
+## FILTERING AND SEARCHING
 Recepcion de parametros
 FromBody para tipos complejos
 FromFrom  tipos IFromFile y IFromFileCollection
 FromRoutes  son los parametros que hacen match con routing
 FromQuery para cualquier otros parametros
 
-###Filtering
+### Filtering
 Limiting the collection resource
 El filtro se aplica cuando ya se conecen los resultados
 Solo filtrar por camspos que son parte del recurso
 
-###Searching
+### Searching
 Agregar items dependiendo de unas reglas
 Se usa cuando no se sabe que se busca
 
