@@ -160,7 +160,7 @@ Accept header le dice al API que retornar
 	se recomienda retornar 406 Not acceptable (modificar el Service.AddControllers(settup action ) en ConfigureServices)
 	La otra forma es aceptar el formater(settup action addInputFormater)
 
-## GETTING RESOURSES
+ ## GETTING RESOURSES
 ### Outer Facing vs Entity Model 
 No es lo mismo que esta en la base de datos a lo que se retorna.
 
@@ -200,13 +200,14 @@ Sguro si no cambia la representación del recurso (get, head)
 Idempontente cuando se puede llamar muchas veces y se obtiene el mismo resultado
 
 |Method  | Secure | Idemp |
-|GET     | yes    | yes |
-|OPTONS  | yes    | yes |
-|HEAD    | yes    | yes |
-|POST    | no     | no  |
-|DELETE  | no     | yes |
-|PUT     | no     | yes | 
-|PATCH   | no     | no  | 
+|------  | ------ | ----- |
+|GET     | yes    | yes   |
+|OPTONS  | yes    | yes   |
+|HEAD    | yes    | yes   |
+|POST    | no     | no    |
+|DELETE  | no     | yes   |
+|PUT     | no     | yes   |  
+|PATCH   | no     | no    | 
 
 | 3 | 3 | 3 | 3 | 3 |
 |---|---|---|---|---|
