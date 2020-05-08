@@ -199,14 +199,14 @@ Cual método utilizar para deteminada operación
 Sguro si no cambia la representación del recurso (get, head)
 Idempontente cuando se puede llamar muchas veces y se obtiene el mismo resultado
 
-Method        Secure           Idemp
-GET           yes		yes
-OPTONS        yes		yes
-HEAD          yes		yes
-POST          no                no    si envio agregar algo dos veces lo agrega dos veces
-DELETE        no                yes
-PUT           no                yes 
-PATCH         no 		no 
+| Method | Secure | Idemp |
+|GET |           yes | yes |
+|OPTONS |        yes | yes |
+|HEAD |          yes | yes |
+|POST |          no | no |
+|DELETE |        no | yes |
+|PUT |           no | yes | 
+|PATCH |         no | no | 
 
 Importante:  Usar diferentes DTOs para cada operacion 
 
