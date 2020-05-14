@@ -217,6 +217,31 @@ Idempontente cuando se puede llamar muchas veces y se obtiene el mismo resultado
 
 Importante:  Usar diferentes DTOs para cada operacion 
 
+Cuando se crea siempre se debe retornar el url con el get resultante 
+
+###Supporting options 
+Especifica que es lo que puede hacerse para determinado recurso
+
+###Media types
+Al igual que en los get, se debe poder agregar algo en json para luego verlo en xml o al contrario
+
+
+##Validating data and reporting validation errors
+
+###Model State
+Diccionario que contiene el estado de un modelo y el binding validation, ademas contiene un mensaje de
+error para cada propiedad validada
+Cuando la sintaxis esta bien se debe usar 422-unprocessable entity
+
+###Data anotations
+Permite validar de forma automatica las propiedades de los atributos
+Se pueden agregar validaciones adicionales.
+
+###Class Level Validation
+
+
+
+-
 
 
 
