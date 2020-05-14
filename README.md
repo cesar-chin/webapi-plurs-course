@@ -219,27 +219,39 @@ Importante:  Usar diferentes DTOs para cada operacion
 
 Cuando se crea siempre se debe retornar el url con el get resultante 
 
-###Supporting options 
+### Supporting options 
 Especifica que es lo que puede hacerse para determinado recurso
 
-###Media types
+### Media types
 Al igual que en los get, se debe poder agregar algo en json para luego verlo en xml o al contrario
 
 
-##Validating data and reporting validation errors
+## Validating data and reporting validation errors
 
-###Model State
+### Model State
 Diccionario que contiene el estado de un modelo y el binding validation, ademas contiene un mensaje de
 error para cada propiedad validada
 Cuando la sintaxis esta bien se debe usar 422-unprocessable entity
 
-###Data anotations
+### Data anotations
 Permite validar de forma automatica las propiedades de los atributos
 Se pueden agregar validaciones adicionales.
 
-###Class Level Validation
+### Class Level Validation
+Se hace una clase que sobreescribe los atributos a validar
+es mejor porque se ejecuta antes que el metodo validate se ejecute y solo pasa cuando se pasan las validaciones de datos
 
+### Customize error messages
+Se puede agregar un error en cada dato que se valida
 
+###Reporting validation errors
+Son formatos de error comunes  que identifican problemas especificos de un API, esto se relaciona cuando el 
+cliente del API es otro sistema
+
+###Fluent Validation
+Ver repositorio Git
+
+##Updating Resources
 
 -
 
